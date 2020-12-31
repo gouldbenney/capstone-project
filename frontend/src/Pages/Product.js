@@ -20,7 +20,7 @@ function Product({id, title, image,  price, rating}){
     }
     return(
     <div className='product'>
-        <button onClick={addToBasket}>Add to Shopping Basket</button>
+        <button onClick={addToBasket}>Add to Basket</button>
         
         <div className='product__info'>
             <p>{title}</p>
@@ -33,7 +33,7 @@ function Product({id, title, image,  price, rating}){
                     Array(rating)
                     .fill()
                     .map((_) => (
-                        <p>*</p>
+                        <p className='rating'>*</p>
                     ))
                 }
 

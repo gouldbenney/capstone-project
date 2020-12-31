@@ -9,20 +9,21 @@
 .Login__logo{
 width: 100px;
 display: flex;
-flex-direction: inherit;
+margin-top: 20px;
+margin-bottom: 20px;
+object-fit: contain;
+/* flex-direction: inherit;
 padding: 10px;
 border: 1px solid lightgray;
-border-radius: 10px;
+border-radius: 10px;  */
 }
 
 .Login__container{
 width: 300px;
 display: flex;
 flex-direction: column;
-padding: 40px;
+padding: 30px;
 border: 1px solid lightgreen;
-border-radius: 20px;
-
 }
 
 .Login__signInButton, .login__registerButton {
