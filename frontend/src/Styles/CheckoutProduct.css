@@ -29,6 +29,8 @@
     background: rgb(151, 185, 28);
     border: 1px solid;
     margin-top: 10px;
-    border-color: #a88734 #9c7e31 #846a29;
-    color: #111;
+    border-color: rgb(225, 231, 225) #aa8a37 #8b6e24;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
 }

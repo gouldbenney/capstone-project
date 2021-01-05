@@ -2,19 +2,41 @@ import React, { useState } from 'react';
 import '../Styles/Login.css';
 import {Link, useHistory} from 'react-router-dom'
 
-function Login(){
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    // This stops the refresh
-    const login = event =>{
-    event.preventDefault(); 
+
+function Login( {handleLoginstate} ) {
+
+    const [email, setEmail]=useState(''),
+    [alert, setAlert] = useState(''),
+    
+    [password,setPassword] =useState(''),history =useHistory()
+  
+    function handleEmail(e){
+        setEmail(e.target.value)
     }
 
-    const register = event =>{
-    event.preventDefault(); 
+    function handlePassword (e){
+        setPassword(e.target.value)
     }
+
+  
+    function handleLoginClick(e){
+        e.preventDefault()
+        let users = JSON.parse(localStorage.getItem('users'))
+         if(users !==null){
+             let user = users[email]
+            if (user && user.password===password){
+                handleLoginstate(true, user)
+                history.push('/')
+            }
+            else
+               setAlert('Wrong email or password') 
+         }
+         else
+            setAlert('Unknown user..Signup')
+        }
 
     return(
+        <>
         <div className='Login'>
             <Link to='/'>
                 <img 
@@ -24,18 +46,20 @@ function Login(){
             </Link>
             <div className='Login__container'>
                 <h1>Sign In</h1>
+
                 <form>
                     <h5>E-mail</h5>
-                    <input value={email} onChange={event => setEmail(event.target.value)} type='email'/>
+                    <input type='email'/>
                     <h5>Password</h5>
-                    <input value={password} onChange={event => setPassword (event.target.value)} type='password'/>
+                    <input type='password'/>
                     <br/>
-                    <button type='submit' className='Login__signInButton'> Sign In </button>
+                    <button type='submit' className='Login__signInButton' onClick={handleLoginClick} > Sign In </button>
                 </form>
                 <p>By signing in, you agree to Aurum Market's terms and conditions</p>
-                <button className='login__registerButton'> New? Create your Aurum Market Account Here</button>
+                <button className='login__registerButton'> <Link  to='/signup'> </Link>New? Create your Aurum Market Account Here</button>
             </div>
         </div>
+        </>
     )
 }
 

@@ -16,8 +16,8 @@ function Subtotal(){
             <>
             <p>
                 Subtotal ({basket.length} items): <strong>{`${value}`}</strong>
-            <small className='subtotal__gift'>
-            </small>
+            {/* <small className='subtotal__gift'>
+            </small> */}
             </p>
             </>
         )}

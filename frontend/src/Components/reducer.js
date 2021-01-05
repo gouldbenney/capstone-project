@@ -1,28 +1,8 @@
 // Adding items to the basket
 
 export const initialState = {
-    basket: [
-      {
-                id:'1270',
-                title:'Cucumber',
-                price:1.5,
-                rating:4,
-                image:
-                  'http://react.pixelstrap.com/assets/images/vegetables/pro/5.jpg',
-    },
-
-    {
-                id:'1270',
-                title:'Cucumber',
-                price:1.5,
-                rating:4,
-                image:
-                  'http://react.pixelstrap.com/assets/images/vegetables/pro/5.jpg',
-},
-
-  ],
+    basket: [],
     user: null,
-
 };
 export const getBasketTotal = (basket) =>
 basket?.reduce((amount, item) => item.price + amount, 0);
@@ -30,6 +10,11 @@ basket?.reduce((amount, item) => item.price + amount, 0);
 const reducer = (state, action) => {
     console.log(action);
     switch(action.type){
+        case 'SET_USER':
+        return {
+        ...state,
+        user: action.user
+        }
         case 'ADD_TO_BASKET':
           return {
            ...state,

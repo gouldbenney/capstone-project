@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const config = require('./helpers/config')
 
 const authRoutes = require('./routes/auth')
+const productRoutes = require('./routes/product')
 
 
 // Mongoose Connection
@@ -20,6 +21,7 @@ const app = express()
 app.use(express.json())
 
 app.use(authRoutes)
+app.use(productRoutes)
 
 
 
