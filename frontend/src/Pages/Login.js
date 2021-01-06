@@ -9,23 +9,25 @@ function Login( {handleLoginstate} ) {
     [alert, setAlert] = useState(''),
     
     [password,setPassword] =useState(''),history =useHistory()
-  
+
     function handleEmail(e){
-        setEmail(e.target.value)
-    }
-
-    function handlePassword (e){
-        setPassword(e.target.value)
-    }
-
+        setEmail(e.target.value)  
+       }
+      
+       function handlePassword(e){
+        setPassword(e.target.value)  
+       }
   
     function handleLoginClick(e){
         e.preventDefault()
         let users = JSON.parse(localStorage.getItem('users'))
-         if(users !==null){
-             let user = users[email]
-            if (user && user.password===password){
-                handleLoginstate(true, user)
+        console.log(users)
+        if(users !==null){
+             let userEmail = users['Gould'].email
+             let userPassword= users['Gould'].password
+             console.log(userPassword)
+            if (email===userEmail && password===userPassword){
+                handleLoginstate(true, userEmail)
                 history.push('/')
             }
             else
@@ -49,9 +51,9 @@ function Login( {handleLoginstate} ) {
 
                 <form>
                     <h5>E-mail</h5>
-                    <input type='email'/>
+                    <input type='email' value={email} onChange={handleEmail}/>
                     <h5>Password</h5>
-                    <input type='password'/>
+                    <input type='password' value={password} onChange={handlePassword}/>
                     <br/>
                     <button type='submit' className='Login__signInButton' onClick={handleLoginClick} > Sign In </button>
                 </form>
