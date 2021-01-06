@@ -5,7 +5,7 @@ function Footer(){
     return(
         <div className='footerarea'>
            <div className='footerarea__top'>
-                <a href='#top'>Back to Top</a>
+                <a className='link__one' href='#top'>Back to Top</a>
                 <h5>Contact: 0249255208</h5>
                 <h5>Email: aurumfoodsgh@gmail.com</h5>
                 <h5>Instagram: Aurum FoodsGH</h5>
